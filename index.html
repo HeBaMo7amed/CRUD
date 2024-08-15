@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--bootstrap style link-->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!--main style link-->
+    <link rel="stylesheet" href="./css/main.css">
+
+</head>
+
+<body>
+    <div class="container py-5">
+        <h1 class="text-center text-dark"> Product Management System </h1>
+        <div class="prodctcolor">
+            <div class="form-group my-4 fs-4">
+                <label for="productName"> product Name </label>
+                <input type="text" id="productName" class="form-control my-2" placeholder="Enter Product Name">
+                <div id="nameError" class="text-danger""></div>
+            </div>
+            <div class="form-group my-4 fs-4">
+                <label for="productPrice"> product Price </label>
+                <input type="text" id="productPrice" class="form-control my-2" placeholder="Enter Product Price">
+                <div id="priceError" class="text-danger""></div>
+            </div>
+            <div class="form-group my-4 fs-4">
+                <label for="productCat"> product Category </label>
+                <input type="text" id="productCat" class="form-control my-2" placeholder="Enter Product Category ">
+                <div id="categoryError" class="text-danger""></div>
+            </div>
+            <div class="form-group my-4 fs-4">
+                <label for="productDes"> product Description </label>
+                <input type="text" id="productDes" class="form-control my-2"
+                    placeholder="Enter your opinion about product">
+                    <div id="descriptionError" class="text-danger"></div>
+            </div>
+        </div>
+
+        <button class="btn btn-outline-dark " onclick="addproduct()"> Add product </button>
+        <button class="btn btn-outline-dark d-none" id="saveBtn" onclick="saveUpdate()"> Save changes </button>
+        <div class="searchcolor">
+            <input type="text" class="form-control my-4" oninput="searchProduct(this.value)"
+                placeholder="Search with product name">
+        </div>
+        <table class="table text-center my-5 ">
+            <thead>
+                <th>index</th>
+                <th>product Name</th>
+                <th>product Price </th>
+                <th>product Category</th>
+                <th>product Description</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </thead>
+            <tbody id="dataa">
+            </tbody>
+        </table>
+    </div>
+
+
+    <!--bootstrap script link -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <!--main script link -->
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
