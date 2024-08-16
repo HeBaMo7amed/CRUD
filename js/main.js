@@ -112,7 +112,7 @@ function checkProductPrice(productPrice) {
 
 }
 function chackProductCategory(productCategory) {
-  var regex = /^[a-zA-Z0-9\s]+$/; 
+  var regex = /^[A-Z][a-zA-Z0-9\s]+$/; 
   var isValid = regex.test(productCategory.value);
   document.getElementById("categoryError").innerText = isValid ? "" : "Invalid product category.";
   return isValid;
