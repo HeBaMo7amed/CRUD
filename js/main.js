@@ -118,7 +118,7 @@ function chackProductCategory(productCategory) {
   return isValid;
 }
 function chackProductDescription(productDescription) {
-  var regex = /^[a-zA-Z0-9\s.,!?\-]+$/;
+  var regex = /^[A-Z][a-zA-Z0-9\s.,!?\-]+$/;
   var isValid = regex.test(productDescription.value);
   document.getElementById("descriptionError").innerText = isValid ? "" : "Invalid product description.";
   return isValid;
