@@ -33,7 +33,9 @@ function addproduct(){
   console.log(productsList);
   displayproduct (productsList);
   saveBtn.classList.add("d-none");
-  clearInputs()
+  clearInputs();
+  clearSearch();
+  searchProduct(document.getElementById("searchInput").value); 
 }  
 }
 function displayproduct(data) {
@@ -41,6 +43,7 @@ function displayproduct(data) {
     var cartona = '';
     for(var i = 0 ; i<data.length ; i++){
       var updateIndex = productsList.indexOf(data[i]);
+      var nameToDisplay = data[i].newName ? data[i].newName : data[i].name;
       cartona += `
               <tr>
               <td>${i+1}</td>
@@ -55,15 +58,21 @@ function displayproduct(data) {
     document.getElementById("dataa").innerHTML = cartona;
 }
 function deleteProduct(index){
-  productsList.splice(index,1)
+  productsList.splice(index,1);
+  productsList.forEach(product => product.newName = undefined);
   localStorageUpdate()
   displayproduct (productsList);
+  clearSearch();
+  searchProduct(document.getElementById("searchInput").value); 
 }
 function clearInputs(){
   productName.value = '';
   productPrice.value = '';
   productCategory.value ='';
   productDescription.value ='';
+}
+function clearSearch() {
+  document.getElementById("searchInput").value = '';
 }
 function updateProduct(index){
   
@@ -80,10 +89,13 @@ function saveUpdate(){
  productsList[counter].price = productPrice.value 
  productsList[counter].categ = productCategory.value 
  productsList[counter].desc = productDescription.value 
+ productsList.forEach(product => product.newName = undefined);
  localStorageUpdate()
  displayproduct(productsList)
  saveBtn.classList.add("d-none");
- clearInputs()
+ clearInputs();
+ clearSearch();
+ searchProduct(document.getElementById("searchInput").value); 
 }}
 function searchProduct(data){
   console.log(data);
