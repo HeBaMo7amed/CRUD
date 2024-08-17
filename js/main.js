@@ -37,8 +37,10 @@ function addproduct(){
 }  
 }
 function displayproduct(data) {
+  
     var cartona = '';
     for(var i = 0 ; i<data.length ; i++){
+      var updateIndex = productsList.indexOf(data[i]);
       cartona += `
               <tr>
               <td>${i+1}</td>
@@ -46,8 +48,8 @@ function displayproduct(data) {
               <td>${data[i].price}</td>
               <td>${data[i].categ}</td>
               <td>${data[i].desc}</td>
-              <td><button onclick="updateProduct(${i})" class="btn btn-warning">Update</button></td>
-              <td><button onclick="deleteProduct(${i})" class="btn btn-danger">Delete</button></td>
+              <td><button onclick="updateProduct(${updateIndex})" class="btn btn-warning">Update</button></td>
+              <td><button onclick="deleteProduct(${updateIndex})" class="btn btn-danger">Delete</button></td>
           </tr>`
     }
     document.getElementById("dataa").innerHTML = cartona;
@@ -64,6 +66,7 @@ function clearInputs(){
   productDescription.value ='';
 }
 function updateProduct(index){
+  
   productName.value = productsList[index].name
   productPrice.value = productsList[index].price
   productCategory.value = productsList[index].categ
@@ -72,6 +75,7 @@ function updateProduct(index){
   saveBtn.classList.remove("d-none");
 }
 function saveUpdate(){
+  if (checkProductName(productName) && checkProductPrice(productPrice) && chackProductCategory(productCategory) && chackProductDescription(productDescription)) {
  productsList[counter].name = productName.value 
  productsList[counter].price = productPrice.value 
  productsList[counter].categ = productCategory.value 
@@ -80,7 +84,7 @@ function saveUpdate(){
  displayproduct(productsList)
  saveBtn.classList.add("d-none");
  clearInputs()
-}
+}}
 function searchProduct(data){
   console.log(data);
   
