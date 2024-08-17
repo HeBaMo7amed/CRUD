@@ -32,6 +32,7 @@ function addproduct(){
   localStorageUpdate()
   console.log(productsList);
   displayproduct (productsList);
+  saveBtn.classList.add("d-none");
   clearInputs()
 }  
 }
